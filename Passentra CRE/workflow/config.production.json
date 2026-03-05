@@ -1,0 +1,34 @@
+{
+  "policyVersion": "v0.2.0-production",
+  "defaultTtlSeconds": 2592000,
+  "enableOnchainWrite": true,
+  "writeMode": "dual_on_approve",
+  "chains": [
+    {
+      "chainSelectorName": "ethereum-testnet-sepolia",
+      "registryAddress": "0x1111111111111111111111111111111111111111",
+      "gasLimit": "600000"
+    },
+    {
+      "chainSelectorName": "ethereum-testnet-sepolia-arbitrum-1",
+      "registryAddress": "0x2222222222222222222222222222222222222222",
+      "gasLimit": "600000"
+    }
+  ],
+  "worldId": {
+    "verifyUrlTemplate": "https://developer.world.org/api/v4/verify/{rp_id}",
+    "rpId": "rp_production_replace_me",
+    "apiKeySecretId": "WORLD_ID_VERIFIER_API_KEY",
+    "vaultNamespace": "env"
+  },
+  "compliance": {
+    "mode": "adapter",
+    "adapterUrl": "https://example.com",
+    "apiKeySecretId": "COMPLIANCE_ADAPTER_API_KEY",
+    "vaultNamespace": "env",
+    "fallbackDecision": "rejected",
+    "fallbackReasonCodes": [
+      "COMPLIANCE_FALLBACK_DECISION"
+    ]
+  }
+}

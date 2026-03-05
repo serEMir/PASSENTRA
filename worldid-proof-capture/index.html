@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World ID 4 Proof Capture</title>
+    <style>
+      body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 24px; line-height: 1.35; }
+      h1 { margin: 0 0 16px; font-size: 22px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 12px; }
+      label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+      input, select, textarea, button { font: inherit; }
+      input, select { padding: 8px; border: 1px solid #c9ced6; border-radius: 8px; }
+      textarea { width: 100%; min-height: 170px; padding: 10px; border: 1px solid #c9ced6; border-radius: 8px; resize: vertical; }
+      button { padding: 10px 14px; border: 0; border-radius: 8px; background: #111827; color: #fff; cursor: pointer; }
+      button.secondary { background: #4b5563; }
+      .row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+      .status { padding: 10px; border-radius: 8px; background: #ecfeff; border: 1px solid #a5f3fc; color: #155e75; margin: 8px 0 14px; }
+      .status.error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+      .hint { color: #475569; font-size: 13px; margin: 0 0 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>World ID 4 Proof Capture</h1>
+    <p class="hint">This helper gets an IDKit 4 proof, then produces a ready-to-paste CRE payload.</p>
+
+    <div class="grid">
+      <label>Signer URL
+        <input id="signerUrl" placeholder="http://127.0.0.1:8788" />
+      </label>
+      <label>App ID
+        <input id="appId" placeholder="app_staging_xxx" />
+      </label>
+      <label>Action
+        <input id="action" placeholder="human-verifier" />
+      </label>
+      <label>Environment
+        <input id="environment" value="staging" readonly />
+      </label>
+      <label>Preset
+        <select id="preset">
+          <option value="orb">orbLegacy</option>
+          <option value="document">documentLegacy</option>
+          <option value="secure_document">secureDocumentLegacy</option>
+          <option value="selfie">selfieCheck</option>
+        </select>
+      </label>
+      <label>Signal (optional)
+        <input id="signal" placeholder="user-123" />
+      </label>
+      <label>Allow Legacy Proofs
+        <select id="allowLegacy">
+          <option value="false">false</option>
+          <option value="true">true</option>
+        </select>
+      </label>
+      <label>Poll Timeout (ms)
+        <input id="timeoutMs" type="number" value="180000" />
+      </label>
+    </div>
+
+    <div class="grid">
+      <label>Workflow Request ID
+        <input id="requestId" placeholder="req-v4-001" />
+      </label>
+      <label>User Address
+        <input id="userAddress" placeholder="0x..." />
+      </label>
+      <label>Target Chain
+        <select id="targetChain">
+          <option value="ethereum-testnet-sepolia">ethereum-testnet-sepolia</option>
+          <option value="ethereum-testnet-sepolia-arbitrum-1">ethereum-testnet-sepolia-arbitrum-1</option>
+        </select>
+      </label>
+      <label>Country Code
+        <input id="countryCode" value="US" maxlength="2" />
+      </label>
+      <label>Credential Type
+        <select id="credentialType">
+          <option value="accredited">accredited</option>
+          <option value="retail">retail</option>
+          <option value="institution">institution</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="row">
+      <button id="startVerification">Start Verification</button>
+      <button id="copyPayload" class="secondary" type="button">Copy Workflow Payload</button>
+    </div>
+
+    <div id="status" class="status">Ready.</div>
+
+    <label>Connector URI (scan/open this in World App)
+      <textarea id="connectorUri" class="mono" readonly></textarea>
+    </label>
+
+    <label>Raw IDKit Result
+      <textarea id="rawResult" class="mono" readonly></textarea>
+    </label>
+
+    <label>CRE Workflow Payload (paste into `http_payload_approved.json`)
+      <textarea id="workflowPayload" class="mono" readonly></textarea>
+    </label>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

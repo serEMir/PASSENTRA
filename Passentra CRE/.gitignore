@@ -1,0 +1,31 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependency / build artifacts
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
+
+# CRE / workflow temp artifacts
+workflow/.cre_build_tmp.js
+workflow/tmp.js
+workflow/tmp.wasm
+
+# Python cache
+scripts/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Demo outputs and logs
+demo-output/
+*.log

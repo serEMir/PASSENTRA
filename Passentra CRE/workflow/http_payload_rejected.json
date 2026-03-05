@@ -1,0 +1,22 @@
+{
+  "requestId": "req-rejected-001",
+  "userAddress": "0x7e5f4552091a69125d5dfcb7b8c2659029395bdf",
+  "targetChain": "ethereum-testnet-sepolia-arbitrum-1",
+  "countryCode": "US",
+  "credentialType": "institution",
+  "worldProofV4": {
+    "protocol_version": "3.0",
+    "nonce": "replace-with-idkit-v3-nonce-reject",
+    "action": "human-verifier",
+    "environment": "staging",
+    "responses": [
+      {
+        "identifier": "device",
+        "nullifier": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "signal_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
+        "merkle_root": "0xreplace_with_idkit_v3_merkle_root",
+        "proof": "0xreplace_with_idkit_v3_proof"
+      }
+    ]
+  }
+}

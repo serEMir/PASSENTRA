@@ -1,0 +1,41 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Node / Bun
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+dist-ssr/
+**/dist-ssr/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Foundry / build
+cache/
+out/
+**/cache/
+**/out/
+broadcast/*/31337/
+broadcast/**/dry-run/
+
+# Logs / artifacts
+*.log
+demo-output/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Local notes
+prompt.md
+SUBMISSION.md
