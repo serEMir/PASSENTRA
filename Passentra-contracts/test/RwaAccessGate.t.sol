@@ -4,10 +4,12 @@ pragma solidity ^0.8.24;
 import {Test} from "forge-std/Test.sol";
 import {PassportRegistry} from "../src/PassportRegistry.sol";
 import {RwaAccessGate} from "../src/RwaAccessGate.sol";
+import {DeployPassportSystem} from "../script/DeployPassportSystem.s.sol";
 
 contract RwaAccessGateTest is Test {
     PassportRegistry internal registry;
     RwaAccessGate internal gate;
+    DeployPassportSystem internal deployer;
 
     address internal reporter = address(0xA11CE);
     address internal user = address(0xBEEF);
@@ -19,8 +21,10 @@ contract RwaAccessGateTest is Test {
     bytes32 internal constant ACTION_ID = keccak256("BUY_RWA");
 
     function setUp() public {
-        registry = new PassportRegistry(reporter);
-        gate = new RwaAccessGate(address(registry));
+        vm.chainId(11155111);
+        deployer = new DeployPassportSystem();
+        (registry, gate) = deployer.run();
+        reporter = registry.trustedForwarder();
     }
 
     function _writeStamp(bool eligible, uint64 expiresAt) internal {

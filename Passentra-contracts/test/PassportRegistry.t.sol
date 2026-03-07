@@ -3,9 +3,11 @@ pragma solidity ^0.8.24;
 
 import {Test} from "forge-std/Test.sol";
 import {PassportRegistry} from "../src/PassportRegistry.sol";
+import {DeployPassportSystem} from "../script/DeployPassportSystem.s.sol";
 
 contract PassportRegistryTest is Test {
-    PassportRegistry internal registry;
+    PassportRegistry public registry;
+    DeployPassportSystem internal deployer;
 
     address internal reporter = address(0xA11CE);
     address internal user = address(0xBEEF);
@@ -18,7 +20,10 @@ contract PassportRegistryTest is Test {
     bytes32 internal constant POLICY_HASH = keccak256("policy-v1");
 
     function setUp() public {
-        registry = new PassportRegistry(reporter);
+        vm.chainId(11155111);
+        deployer = new DeployPassportSystem();
+        (registry,) = deployer.run();
+        reporter = registry.trustedForwarder();
     }
 
     function _encodeReport(

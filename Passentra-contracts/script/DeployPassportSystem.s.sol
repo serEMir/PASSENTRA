@@ -9,7 +9,7 @@ contract DeployPassportSystem is Script {
     address arbitrumSepoliaForwarder = 0xD41263567DdfeAd91504199b8c6c87371e83ca5d;
     address sepoliaForwarder = 0x15fC6ae953E024d975e77382eEeC56A9101f9F88;
 
-    function run() external {
+    function run() external returns (PassportRegistry, RwaAccessGate) {
         address trustedForwarder = getTrustedForwarder();
 
         vm.startBroadcast();
@@ -20,6 +20,7 @@ contract DeployPassportSystem is Script {
         console2.log("PassportRegistry:", address(registry));
         console2.log("RwaAccessGate:", address(gate));
         console2.log("TrustedForwarder:", trustedForwarder);
+        return (registry, gate);
     }
 
     function getTrustedForwarder() internal view returns (address) {
