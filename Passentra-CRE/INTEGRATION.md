@@ -190,14 +190,3 @@ Replay protection exists at two layers:
 
 Result:
 - the same proof cannot be reused to mint multiple valid passport stamps.
-
-## 10. Judge Framing
-
-For judges, the clean explanation is:
-
-> This project is a reusable eligibility rail.  
-> CRE handles private verification and policy evaluation offchain, then writes a minimal onchain passport that any protocol can consume without re-running onboarding or exposing raw user data.
-
-That is the product boundary:
-- not "yet another RWA frontend",
-- a portable issuance-and-consumption rail for onchain access.
