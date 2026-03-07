@@ -60,7 +60,7 @@ CRE_ETH_PRIVATE_KEY=0x...
 
 ## Run Scenarios
 
-Run from `Passentra CRE` root.
+Run from `Passentra-CRE` root.
 
 ### Single-chain write mode
 

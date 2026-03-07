@@ -45,7 +45,7 @@ COMPLIANCE_BLOCKED_COUNTRIES=IR,KP
 Important key mapping:
 
 - `COMPLIANCE_ADAPTER_API_KEY` in this adapter must match
-- `COMPLIANCE_ADAPTER_API_KEY_ALL` in `Passentra CRE/.env`
+- `COMPLIANCE_ADAPTER_API_KEY_ALL` in `Passentra-CRE/.env`
 
 ## Run
 

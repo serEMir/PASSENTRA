@@ -16,23 +16,23 @@ Partner integration guide: [`INTEGRATION.md`](INTEGRATION.md)
 
 ```mermaid
 flowchart TD
-  A[HTTP Trigger Payload\nrequestId, userAddress, targetChain, worldProofV4] --> B[CRE Workflow\nonActivatePassport]
+  A["HTTP Trigger Payload<br/>requestId, userAddress, targetChain, worldProofV4"] --> B["CRE Workflow<br/>onActivatePassport"]
 
-  B --> C[Confidential HTTP\nWorld ID verify v4]
-  B --> D[Confidential HTTP\nCompliance Adapter]
-  C --> E[Decision Engine\napproved/rejected + reasonCodes + ttl]
+  B --> C["Confidential HTTP<br/>World ID verify v4"]
+  B --> D["Confidential HTTP<br/>Compliance Adapter"]
+  C --> E["Decision Engine<br/>approved/rejected + reasonCodes + ttl"]
   D --> E
 
-  E --> F[Build hashes\nrequestIdHash, nullifierHash,\ndecisionHash, policyVersionHash]
-  F --> G[Replay Pre-check per chain\nusedRequestIdHashes / usedNullifierHashes]
-  G --> H[runtime.report(...)\nSigned CRE report]
+  E --> F["Build hashes<br/>requestIdHash, nullifierHash,<br/>decisionHash, policyVersionHash"]
+  F --> G["Replay Pre-check per chain<br/>usedRequestIdHashes / usedNullifierHashes"]
+  G --> H["runtime.report(...)<br/>Signed CRE report"]
 
-  H --> I[Write mode = single\nwrite to requested targetChain]
-  H --> J[Write mode = dual_on_approve\napproved -> both chains\nrejected -> targetChain only]
+  H --> I["Write mode = single<br/>write to requested targetChain"]
+  H --> J["Write mode = dual_on_approve<br/>approved -> both chains<br/>rejected -> targetChain only"]
 
-  I --> K[PassportRegistry (Sepolia/Arbitrum)]
+  I --> K["PassportRegistry (Sepolia/Arbitrum)"]
   J --> K
-  K --> L[RwaAccessGate\naccessStatus / executeRwaAction]
+  K --> L["RwaAccessGate<br/>accessStatus / executeRwaAction"]
 ```
 
 ## 3) Confidential HTTP Path
@@ -55,12 +55,12 @@ flowchart TD
 ## 5) Replay Guarantees
 
 - **Workflow layer** (`workflow/src/onchain.ts`): reads `usedRequestIdHashes` and `usedNullifierHashes` before write.
-- **Contract layer** (`../Passentra contracts/src/PassportRegistry.sol`): reverts if request hash or nullifier hash was already consumed.
+- **Contract layer** (`../Passentra-contracts/src/PassportRegistry.sol`): reverts if request hash or nullifier hash was already consumed.
 - **Net effect**: a replayed payload cannot create a second valid stamp.
 
 ## 6) Terminal Demo (Judge Path)
 
-From `Passentra CRE/`:
+From `Passentra-CRE/`:
 
 ```bash
 WORLD_ID_VERIFIER_API_KEY_ALL=... \

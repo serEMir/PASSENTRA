@@ -1,4 +1,4 @@
-# Passentra CRE
+# Passentra-CRE
 
 This folder contains the CRE side of Passentra:
 
@@ -15,7 +15,7 @@ This folder contains the CRE side of Passentra:
 
 ## Quick Start
 
-Run from `Passentra CRE/`.
+Run from `Passentra-CRE/`.
 
 1. Install dependencies:
 
@@ -47,7 +47,7 @@ bun run dev
 5. Run full demo in terminal B:
 
 ```bash
-cd 'Passentra CRE'
+cd 'Passentra-CRE'
 set -a && source .env && set +a
 TARGET=staging-write-dual-settings BROADCAST=1 CHECK_GATE=1 ./scripts/run-demo.sh
 ```

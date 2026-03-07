@@ -43,7 +43,7 @@ bun run dev
 
 Open the Vite URL, click `Start Verification`, complete the flow in World App, then copy the generated workflow payload into:
 
-- `Passentra CRE/workflow/http_payload_approved.json`
+- `Passentra-CRE/workflow/http_payload_approved.json`
 
 If you are running replay tests, keep the same `nullifier` and change only `requestId`.
 

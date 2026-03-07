@@ -89,7 +89,7 @@ Notes:
 
 ## 5. Onchain Output
 
-The workflow writes only minimal attestation state into [`PassportRegistry.sol`](../Passentra%20contracts/src/PassportRegistry.sol):
+The workflow writes only minimal attestation state into [`PassportRegistry.sol`](../Passentra-contracts/src/PassportRegistry.sol):
 
 - `eligible`
 - `expiresAt`
@@ -155,7 +155,7 @@ contract Consumer {
 
 ### Option B: Use the gate contract
 
-[`RwaAccessGate.sol`](../Passentra%20contracts/src/RwaAccessGate.sol) exposes:
+[`RwaAccessGate.sol`](../Passentra-contracts/src/RwaAccessGate.sol) exposes:
 
 - `accessStatus(address)` for rich read diagnostics
 - `executeRwaAction(bytes32 actionId)` for auditable gated execution

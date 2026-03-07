@@ -1,0 +1,18 @@
+flowchart TD
+  A["HTTP Trigger Payload<br/>requestId, userAddress, targetChain, worldProofV4"] --> B["CRE Workflow<br/>onActivatePassport"]
+
+  B --> C["Confidential HTTP<br/>World ID verify v4"]
+  B --> D["Confidential HTTP<br/>Compliance Adapter"]
+  C --> E["Decision Engine<br/>approved/rejected + reasonCodes + ttl"]
+  D --> E
+
+  E --> F["Build hashes<br/>requestIdHash, nullifierHash,<br/>decisionHash, policyVersionHash"]
+  F --> G["Replay Pre-check per chain<br/>usedRequestIdHashes / usedNullifierHashes"]
+  G --> H["runtime.report(...)<br/>Signed CRE report"]
+
+  H --> I["writeMode = single<br/>write to requested targetChain"]
+  H --> J["writeMode = dual_on_approve<br/>approved -> both chains<br/>rejected -> targetChain only"]
+
+  I --> K["PassportRegistry (Sepolia/Arbitrum)"]
+  J --> K
+  K --> L["RwaAccessGate<br/>accessStatus / executeRwaAction"]

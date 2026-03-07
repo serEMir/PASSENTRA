@@ -4,8 +4,8 @@ Passentra is a privacy-preserving onchain eligibility rail built with Chainlink 
 
 ## Repository Layout
 
-- [`Passentra CRE/`](Passentra%20CRE/): CRE workflow, compliance adapter, demo scripts, judge docs.
-- [`Passentra contracts/`](Passentra%20contracts/): `PassportRegistry` and `RwaAccessGate` contracts with Foundry tests and deploy scripts.
+- [`Passentra-CRE/`](Passentra-CRE/): CRE workflow, compliance adapter, demo scripts, judge docs.
+- [`Passentra-contracts/`](Passentra-contracts/): `PassportRegistry` and `RwaAccessGate` contracts with Foundry tests and deploy scripts.
 - [`worldid-proof-capture/`](worldid-proof-capture/): local helper app to generate `worldProofV4` payloads for workflow inputs.
 
 ## Prerequisites
@@ -24,73 +24,73 @@ Run from repository root.
 1. Install dependencies:
 
 ```bash
-(cd 'Passentra CRE/workflow' && bun install)
-(cd 'Passentra CRE/compliance-adapter' && bun install)
+(cd 'Passentra-CRE/workflow' && bun install)
+(cd 'Passentra-CRE/compliance-adapter' && bun install)
 ```
 
 2. Configure local env files:
 
 ```bash
-cp 'Passentra CRE/.env.example' 'Passentra CRE/.env'
-cp 'Passentra CRE/compliance-adapter/.env.example' 'Passentra CRE/compliance-adapter/.env'
+cp 'Passentra-CRE/.env.example' 'Passentra-CRE/.env'
+cp 'Passentra-CRE/compliance-adapter/.env.example' 'Passentra-CRE/compliance-adapter/.env'
 ```
 
 3. Set matching compliance API keys in both files:
 
-- `Passentra CRE/.env`: `COMPLIANCE_ADAPTER_API_KEY_ALL=<same-value>`
-- `Passentra CRE/compliance-adapter/.env`: `COMPLIANCE_ADAPTER_API_KEY=<same-value>`
+- `Passentra-CRE/.env`: `COMPLIANCE_ADAPTER_API_KEY_ALL=<same-value>`
+- `Passentra-CRE/compliance-adapter/.env`: `COMPLIANCE_ADAPTER_API_KEY=<same-value>`
 
 4. Start compliance adapter in terminal A:
 
 ```bash
-cd 'Passentra CRE/compliance-adapter'
+cd 'Passentra-CRE/compliance-adapter'
 bun run dev
 ```
 
 5. Run demo in terminal B:
 
 ```bash
-cd 'Passentra CRE'
+cd 'Passentra-CRE'
 set -a && source .env && set +a
 TARGET=staging-write-dual-settings BROADCAST=1 CHECK_GATE=1 ./scripts/run-demo.sh
 ```
 
 For a non-persistent simulation, use `BROADCAST=0`.
-For a fresh approved path, replace `Passentra CRE/workflow/http_payload_approved.json` with a new proof from `worldid-proof-capture/`.
+For a fresh approved path, replace `Passentra-CRE/workflow/http_payload_approved.json` with a new proof from `worldid-proof-capture/`.
 
 ## Submission Assets
 
-- Judge walkthrough: [`Passentra CRE/DEMO.md`](Passentra%20CRE/DEMO.md)
-- Architecture diagram source: [`Passentra CRE/docs/architecture.mmd`](Passentra%20CRE/docs/architecture.mmd)
-- Integration guide: [`Passentra CRE/INTEGRATION.md`](Passentra%20CRE/INTEGRATION.md)
-- Demo runner: [`Passentra CRE/scripts/run-demo.sh`](Passentra%20CRE/scripts/run-demo.sh)
+- Judge walkthrough: [`Passentra-CRE/DEMO.md`](Passentra-CRE/DEMO.md)
+- Architecture diagram source: [`Passentra-CRE/docs/architecture.mmd`](Passentra-CRE/docs/architecture.mmd)
+- Integration guide: [`Passentra-CRE/INTEGRATION.md`](Passentra-CRE/INTEGRATION.md)
+- Demo runner: [`Passentra-CRE/scripts/run-demo.sh`](Passentra-CRE/scripts/run-demo.sh)
 
 ## Chainlink File Index
 
 Core CRE workflow files:
-- [`Passentra CRE/workflow/main.ts`](Passentra%20CRE/workflow/main.ts)
-- [`Passentra CRE/workflow/src/handler.ts`](Passentra%20CRE/workflow/src/handler.ts)
-- [`Passentra CRE/workflow/src/http.ts`](Passentra%20CRE/workflow/src/http.ts)
-- [`Passentra CRE/workflow/src/world-id.ts`](Passentra%20CRE/workflow/src/world-id.ts)
-- [`Passentra CRE/workflow/src/compliance.ts`](Passentra%20CRE/workflow/src/compliance.ts)
-- [`Passentra CRE/workflow/src/onchain.ts`](Passentra%20CRE/workflow/src/onchain.ts)
-- [`Passentra CRE/workflow/src/attestation.ts`](Passentra%20CRE/workflow/src/attestation.ts)
+- [`Passentra-CRE/workflow/main.ts`](Passentra-CRE/workflow/main.ts)
+- [`Passentra-CRE/workflow/src/handler.ts`](Passentra-CRE/workflow/src/handler.ts)
+- [`Passentra-CRE/workflow/src/http.ts`](Passentra-CRE/workflow/src/http.ts)
+- [`Passentra-CRE/workflow/src/world-id.ts`](Passentra-CRE/workflow/src/world-id.ts)
+- [`Passentra-CRE/workflow/src/compliance.ts`](Passentra-CRE/workflow/src/compliance.ts)
+- [`Passentra-CRE/workflow/src/onchain.ts`](Passentra-CRE/workflow/src/onchain.ts)
+- [`Passentra-CRE/workflow/src/attestation.ts`](Passentra-CRE/workflow/src/attestation.ts)
 
 CRE config and wiring:
-- [`Passentra CRE/project.yaml`](Passentra%20CRE/project.yaml)
-- [`Passentra CRE/workflow/workflow.yaml`](Passentra%20CRE/workflow/workflow.yaml)
-- [`Passentra CRE/workflow/config.staging.write.json`](Passentra%20CRE/workflow/config.staging.write.json)
-- [`Passentra CRE/workflow/config.staging.write.dual.json`](Passentra%20CRE/workflow/config.staging.write.dual.json)
-- [`Passentra CRE/workflow/config.production.json`](Passentra%20CRE/workflow/config.production.json)
-- [`Passentra CRE/secrets.yaml`](Passentra%20CRE/secrets.yaml)
+- [`Passentra-CRE/project.yaml`](Passentra-CRE/project.yaml)
+- [`Passentra-CRE/workflow/workflow.yaml`](Passentra-CRE/workflow/workflow.yaml)
+- [`Passentra-CRE/workflow/config.staging.write.json`](Passentra-CRE/workflow/config.staging.write.json)
+- [`Passentra-CRE/workflow/config.staging.write.dual.json`](Passentra-CRE/workflow/config.staging.write.dual.json)
+- [`Passentra-CRE/workflow/config.production.json`](Passentra-CRE/workflow/config.production.json)
+- [`Passentra-CRE/secrets.yaml`](Passentra-CRE/secrets.yaml)
 
 CRE execution and validation scripts:
-- [`Passentra CRE/scripts/run-demo.sh`](Passentra%20CRE/scripts/run-demo.sh)
-- [`Passentra CRE/scripts/check-rwa-access.sh`](Passentra%20CRE/scripts/check-rwa-access.sh)
-- [`Passentra CRE/scripts/extract_sim_result.py`](Passentra%20CRE/scripts/extract_sim_result.py)
+- [`Passentra-CRE/scripts/run-demo.sh`](Passentra-CRE/scripts/run-demo.sh)
+- [`Passentra-CRE/scripts/check-rwa-access.sh`](Passentra-CRE/scripts/check-rwa-access.sh)
+- [`Passentra-CRE/scripts/extract_sim_result.py`](Passentra-CRE/scripts/extract_sim_result.py)
 
 Dependency declaration:
-- [`Passentra CRE/workflow/package.json`](Passentra%20CRE/workflow/package.json)
+- [`Passentra-CRE/workflow/package.json`](Passentra-CRE/workflow/package.json)
 
 ## Security Notes
 

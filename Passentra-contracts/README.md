@@ -1,6 +1,6 @@
 # Passentra Contracts
 
-This package contains the onchain contracts used by the Passentra CRE workflow.
+This package contains the onchain contracts used by the Passentra-CRE workflow.
 
 ## Contracts
 
@@ -75,7 +75,7 @@ The script logs:
 
 ## Integration with CRE Demo
 
-`Passentra CRE/scripts/check-rwa-access.sh` reads:
+`Passentra-CRE/scripts/check-rwa-access.sh` reads:
 
 - `broadcast/DeployPassportSystem.s.sol/11155111/run-latest.json`
 - `broadcast/DeployPassportSystem.s.sol/421614/run-latest.json`

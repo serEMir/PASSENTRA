@@ -2,7 +2,7 @@
 set -u -o pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-CONTRACTS_DIR="${ROOT_DIR}/../Passentra contracts"
+CONTRACTS_DIR="${ROOT_DIR}/../Passentra-contracts"
 
 APPROVED_PAYLOAD="${ROOT_DIR}/workflow/http_payload_approved.json"
 REJECTED_PAYLOAD="${ROOT_DIR}/workflow/http_payload_rejected.json"
@@ -46,7 +46,7 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --root)
       ROOT_DIR="$2"
-      CONTRACTS_DIR="${ROOT_DIR}/../Passentra contracts"
+      CONTRACTS_DIR="${ROOT_DIR}/../Passentra-contracts"
       shift 2
       ;;
     --contracts-dir)
