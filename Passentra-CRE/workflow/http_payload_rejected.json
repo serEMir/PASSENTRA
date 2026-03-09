@@ -1,21 +1,21 @@
 {
-  "requestId": "req-rejected-001",
+  "requestId": "req-v4-4537869087643",
   "userAddress": "0x7e5f4552091a69125d5dfcb7b8c2659029395bdf",
-  "targetChain": "ethereum-testnet-sepolia-arbitrum-1",
-  "countryCode": "US",
-  "credentialType": "institution",
+  "targetChain": "ethereum-testnet-sepolia",
+  "countryCode": "NG",
+  "credentialType": "retail",
   "worldProofV4": {
-    "protocol_version": "3.0",
-    "nonce": "replace-with-idkit-v3-nonce-reject",
-    "action": "human-verifier",
+    "action": "human-verifier-reject-retail-ng",
     "environment": "staging",
+    "nonce": "0x00127126d2b929fc90ccd509cf08bc9f383478a7f5ce1475a59cf1b7b831544f",
+    "protocol_version": "3.0",
     "responses": [
       {
-        "identifier": "device",
-        "nullifier": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
-        "signal_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470",
-        "merkle_root": "0xreplace_with_idkit_v3_merkle_root",
-        "proof": "0xreplace_with_idkit_v3_proof"
+        "identifier": "orb",
+        "merkle_root": "0x1697b69d553c8bb8d71a0b65a3f2b82aec049e81ba06ce7fa055f2bed34f9850",
+        "nullifier": "0x20a1eb08aa5795425a83c99d08abd0210e4eb4dcda51d3bd9f946daaaa296ac3",
+        "proof": "0x2eee0113f70520e909ab36de80661d3c0748552c8aeeed959538641cff4902f605b93855a5c47b64ad4f6d94c4a4b751e63cffe8006ef037c715a33697f627b90914f0982199cbe6204e9d1d6b2a09d8d017a9f8f7c1ee085ba5468d47b879dc1cfb51a6aef6d824fa73210817a79b529700699e64e42dcae0fbeec9b4854e770a1bd9093a72f086c8a1e9c3eb0cd85be1511511da81e3e0fabe161e045e9749264d567154afff4df4a4f8c654497064331cc9398a1d49585729ef16c9fb0271116af1835843cd47784f902b017e6e7898d79013a7ae02fda201daa166ebf8641ed5a5b63782cc522de8957522396dbfbf06d7495509db10d4cb2b6bf11ded18",
+        "signal_hash": "0x00c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a4"
       }
     ]
   }
